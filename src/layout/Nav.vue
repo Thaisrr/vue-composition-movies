@@ -1,14 +1,6 @@
 <script setup>
-import {logout} from "@/helpers/Authentication";
+  import {logout} from "@/helpers/Authentication";
   import {useUser} from "@/pinia";
-
-  const links = [
-    {name: 'bases', text: 'Les Bases'},
-    {name: 'movies', text: 'DawanFlix'},
-    {name: 'login', text: 'Connexion', hide: true},
-    {name: 'register', text: 'Inscription', hide: true },
-  ]
-
   const store = useUser();
 </script>
 
@@ -17,14 +9,29 @@ import {logout} from "@/helpers/Authentication";
  <template>
     <nav>
       <ul>
-        <template v-for="({name, text, hide}, index) of links">
-          <li v-if="!hide || !store.isLogged"  :key="index + name">
-            <router-link :to="{name}">{{text}}</router-link>
+          <li>
+            <router-link :to="{name: 'bases'}">Les Bases</router-link>
+          </li>
+        <template v-if="!store.isLogged">
+          <li>
+            <router-link to="/login">Connexion</router-link>
+          </li>
+          <li>
+            <router-link to="/register">Inscription</router-link>
           </li>
         </template>
-        <li v-if="store.isLogged">
-          <button @click="logout()">Logout</button>
-        </li>
+        <template v-else>
+          <li>
+            <router-link :to="{name: 'movies'}">DawanFlix</router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'create'}">Ajouter</router-link>
+          </li>
+          <li v-if="store.isLogged">
+            <button @click="logout()">Logout</button>
+          </li>
+        </template>
+
       </ul>
     </nav>
 </template>
@@ -33,6 +40,12 @@ import {logout} from "@/helpers/Authentication";
 <style scoped>
 nav {
   padding: 30px 0;
+  background-color: white;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 nav ul {
@@ -55,6 +68,7 @@ nav a:link, nav a:visited {
 
 nav a {
   position: relative;
+  padding-bottom: 10px;
 }
 
 nav a:after {
@@ -68,10 +82,14 @@ nav a:after {
   transition: width .35s ease-in-out;
 }
 
-nav a:hover:after, nav a.active:hover {
+nav a:hover:after, nav a.router-link-exact-active:after {
   width: 100%;
 }
-nav a.active {
-  color: var(--primary)
+
+nav a.router-link-exact-active {
+  --dark: var(--primary)
 }
+
+
+
 </style>

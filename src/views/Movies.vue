@@ -8,7 +8,7 @@ import {
   onUnmounted,
   onUpdated,
   reactive,
-  ref
+  ref, watch
 } from "vue";
 import abra from "abra.js";
 import Grid from "@/layout/Grid.vue";
@@ -56,6 +56,10 @@ const _displayedMovies = computed(() => {
   return movies.value.filter(m => (filter.value === 'true')?  m.is_watched : !m.is_watched);
 });
 
+/*** Je savais pas où le mettre, donc ici, ça sert à rien, mais tu peux surveiller une valeur ***/
+watch(filter, async (oldFilter, newFilter) => {
+  console.log(`%c Modification du filter : ${oldFilter} -> ${newFilter}`, 'color: #2a9d8f')
+})
 
 /**** Hooks de Cycle de vie *******/
 onBeforeMount(() => {
@@ -93,7 +97,11 @@ onUnmounted(() => {
           />
         </Grid>
     </section>
-    <p v-else class="error">{{state.error || 'Oups, something went wrong, please try refreshing the page'}}</p>
+    <template v-else>
+      <p  class="error">{{state.error || 'Oups, something went wrong, please try refreshing the page'}}</p>
+      <p>Est-ce que l'API est bien démarrée ? </p>
+      <p><code>$ npm run api</code></p>
+    </template>
 
   </main>
 

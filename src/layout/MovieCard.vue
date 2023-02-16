@@ -47,6 +47,7 @@ onUnmounted(() => {
     </div>
     <div class='title-flex'>
       <h3>{{show.title}}</h3>
+      <p><router-link :to="{name: 'update', params: {id: show.id}}">Update</router-link></p>
       <button @click=setWatched>{{show.is_watched? 'Vu' : 'Pas vu'}}</button>
     </div>
 
@@ -81,7 +82,9 @@ onUnmounted(() => {
 
 .card .img-container img {
   width: 100%;
-  object-fit: fill;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .card.watched h3:before {

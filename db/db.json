@@ -195,6 +195,36 @@
       "duration": 11,
       "type": "anime",
       "seasons": 6
+    },
+    {
+      "title": "The Mandalorian",
+      "poster": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/4875C22CCA5677436046E63C62233D55960FFF6B17594C96CB99EAE892524FAE/scale?width=1200&aspectRatio=1.78&format=jpeg",
+      "director": "Jon Favreau",
+      "year": 2019,
+      "duration": "40",
+      "type": "serie",
+      "season": "2",
+      "id": 17
+    },
+    {
+      "title": "The Last of Us",
+      "poster": "https://freakingeek.com/wp-content/uploads/2023/01/TheLastOfUs-Serie-Banniere-800x445.jpg",
+      "director": "Neil Druckmann",
+      "year": 2023,
+      "duration": "50",
+      "type": "serie",
+      "season": 1,
+      "id": 18
+    },
+    {
+      "title": "Game of Throne",
+      "poster": "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/f7923179343417df313368741aedd5d062a04a45cc8892c212a102054e2a0b43._UY500_UX667_RI_V_TTW_.jpg",
+      "director": "David Benioff and D. B. Weiss",
+      "year": 2011,
+      "duration": "50",
+      "type": "serie",
+      "season": "8",
+      "id": 19
     }
   ]
 }

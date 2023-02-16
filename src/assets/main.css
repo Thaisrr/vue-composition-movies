@@ -11,6 +11,7 @@
 
     --dark: #264653ff;
     --primary: #2a9d8fff;
+    --primary-shadow: #2a9d8f99;
     --tertiary: #e9c46aff;
     --secondary: #e76f51ff;
     --light: white;
@@ -78,3 +79,18 @@ code {
     font-family: 'Inconsolata', monospace;;
 }
 
+input, textarea {
+    border: var(--dark) solid 1px;
+    border-radius: 4px;
+    padding: 5px 2px;
+}
+
+input:focus, textarea:focus {
+    outline: solid var(--primary-shadow) 3px;
+}
+
+form > div {
+    display: flex;
+    flex-flow: column;
+    margin: 30px auto;
+}
